@@ -1,3 +1,5 @@
+require('./libs/compare');
+const deepClone=require('../libs/deepClone');
 
 /**
  * Compares a control to the output of the "deepClone" function.

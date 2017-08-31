@@ -5,10 +5,6 @@
  * @return {Object} clone - The clone of the source Object.
  **/
 
-function deepClone(source){
+module.exports = function deepClone(source){
 	return Object.assign({},source);
 }
-
-module.export={
-	deepClone:deepClone
-};

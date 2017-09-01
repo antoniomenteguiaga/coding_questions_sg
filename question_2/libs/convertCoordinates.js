@@ -1,6 +1,7 @@
-module.export = function convertCoordinatesIntoRadians(_coordinateString){
+require ("./radiansMath");
+
+module.exports = function convertCoordinatesIntoRadians(_coordinateString){
 	let _coordinates=_coordinateString
-		.trim()
 		.split(",")
 		.map(Number.parseFloat)
 		.map(Math.radians);

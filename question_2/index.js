@@ -1,3 +1,7 @@
+/**
+ * This program prints a list of partner offices within 100km of the Central London Office.
+ **/
+
 const convertCoordinates = require("./libs/convertCoordinates");
 const calculateDistance = require("./libs/calculateDistance");
 let partners = require("./data/partners");

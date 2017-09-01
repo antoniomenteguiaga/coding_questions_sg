@@ -2,6 +2,12 @@ const convertCoordinates=require('../libs/convertCoordinates');
 const calculateDistance=require('../libs/calculateDistance');
 require ('../libs/radiansMath');
 
+/**
+ * A test for the convertCoordinates function that converts decimal strings for London and New York
+ *
+ * @returns {Boolean} pass - A boolean determining whether or not the tests have been succesful.
+ **/
+
 function decimal_string_for_new_york_and_london_converted_into_radian_coordinate_objects(){
 	let london="51.509865, -0.118092";
 	let newYork="40.730610, -73.935242";
@@ -29,6 +35,13 @@ function decimal_string_for_new_york_and_london_converted_into_radian_coordinate
 	return pass;
 }
 
+
+/**
+ * A test for the radians math functions.
+ *
+ * @returns {Boolean} pass - A boolean determining whether or not the tests have been succesful.
+ **/
+
 function decimal_converted_into_radian(){
 	let tests=[
 		[0,0],
@@ -46,6 +59,12 @@ function decimal_converted_into_radian(){
 
 	return pass;
 }
+
+/**
+ * A test for the calculateDistance function. It determines if the calculated distance between New York and London is within the expected range.
+ *
+ * @returns {Boolean} pass - A boolean determining whether or not the tests have been succesful.
+ **/
 
 function distance_between_london_and_new_york(){
 	let londonCoordinates={
@@ -68,6 +87,10 @@ function distance_between_london_and_new_york(){
 	return pass;
 }
 
+/**
+ * A simple container function to run all the tests.
+ **/
+
 function run_tests(){
 	console.log("Distance between London and New York is accurate? ",(distance_between_london_and_new_york()?"Yes":"No"));
 
@@ -75,5 +98,7 @@ function run_tests(){
 
 	console.log("Decimal strings for New York and London are converted into Radian Coordinate Objects correctly?",(decimal_string_for_new_york_and_london_converted_into_radian_coordinate_objects()?"Yes":"No"));
 }
+
+//Testing starts here
 
 run_tests();

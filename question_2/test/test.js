@@ -1,9 +1,9 @@
-const convertCoordinates=require('../libs/convertCoordinates');
-const calculateDistance=require('../libs/calculateDistance');
-require ('../libs/radiansMath');
+const convert_coordinates=require('../libs/convert_coordinates');
+const calculate_distance=require('../libs/calculate_distance');
+require ('../libs/radians_math');
 
 /**
- * A test for the convertCoordinates function that converts decimal strings for London and New York
+ * A test for the convert_coordinates function that converts decimal strings for London and New York
  *
  * @returns {Boolean} pass - A boolean determining whether or not the tests have been succesful.
  **/
@@ -22,8 +22,8 @@ function decimal_string_for_new_york_and_london_converted_into_radian_coordinate
 		longitude: -1.2904134061587973
 	}
 
-	let actualLondonResult=convertCoordinates(london);
-	let actualNewYorkResult=convertCoordinates(newYork);
+	let actualLondonResult=convert_coordinates(london);
+	let actualNewYorkResult=convert_coordinates(newYork);
 
 	let pass=true;
 
@@ -61,7 +61,7 @@ function decimal_converted_into_radian(){
 }
 
 /**
- * A test for the calculateDistance function. It determines if the calculated distance between New York and London is within the expected range.
+ * A test for the calculate_distance function. It determines if the calculated distance between New York and London is within the expected range.
  *
  * @returns {Boolean} pass - A boolean determining whether or not the tests have been succesful.
  **/
@@ -78,7 +78,7 @@ function distance_between_london_and_new_york(){
 	}
 
 	let expectedDistanceRange=[5563,5565];
-	let actualDistance=calculateDistance(londonCoordinates,newYorkCoordinates);
+	let actualDistance=calculate_distance(londonCoordinates,newYorkCoordinates);
 	let pass=true;
 	if(actualDistance<expectedDistanceRange[0] || actualDistance>expectedDistanceRange[1]){
 		pass=false;

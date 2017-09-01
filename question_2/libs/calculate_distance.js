@@ -8,8 +8,8 @@
  **/
 
 module.exports = function distance(point1,point2){
-	let absoluteDifferenceOfLongitudes=Math.abs(point2.longitude-point1.longitude);
-	let centralAngle=Math.acos(
+	let _absolute_difference_of_longitudes=Math.abs(point2.longitude-point1.longitude);
+	let _central_angle=Math.acos(
 		(
 			(
 				Math.sin(point1.latitude)
@@ -19,11 +19,11 @@ module.exports = function distance(point1,point2){
 			(
 				Math.cos(point1.latitude)
 				*Math.cos(point2.latitude)
-				*Math.cos(absoluteDifferenceOfLongitudes)
+				*Math.cos(_absolute_difference_of_longitudes)
 			)
 		)
 	);
-	let r=6371.00; //radius of the earth in kilometers
-	let distance=r*centralAngle;
+	let _r=6371.00; //radius of the earth in kilometers
+	let distance=_r*_central_angle;
 	return distance;
 }

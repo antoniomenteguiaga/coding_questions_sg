@@ -15,13 +15,14 @@ let _mailing_list=partners.reduce(function(_list,partner){
 	}).filter(function(office){
 		return calculate_distance(office.coordinates,_central_london_office_coordinates) <= 100;
 	}).map(function(office){
-		return {
-			"organization":partner.organization,
-			"address":office.address
-		};
-	});
+		return partner.organization+" \t-\t "+office.address+"\n";
+	}).join("");
 	
 	return _list.concat(_offices_within_distance);
-},[]);
+},"");
 
+console.log("Partner Offices within 100km to Invite For A Meal");
+console.log("=================================================");
+console.log("Partner \t-\t Address");
+console.log("------- \t-\t -------");
 console.log(_mailing_list);

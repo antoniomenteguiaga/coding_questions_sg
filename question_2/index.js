@@ -15,14 +15,26 @@ let _mailing_list=partners.reduce(function(_list,partner){
 	}).filter(function(office){
 		return calculate_distance(office.coordinates,_central_london_office_coordinates) <= 100;
 	}).map(function(office){
-		return partner.organization+" \t-\t "+office.address+"\n";
-	}).join("");
-	
+		return {
+			"partner":partner.organization,
+			"office":office.address
+		};
+	});
+
 	return _list.concat(_offices_within_distance);
-},"");
+},[]);
+
+let _mailing_list_presented=_mailing_list
+	.sort(function(a,b){
+		return a.partner.charCodeAt(0) - b.partner.charCodeAt(0);
+	})
+	.map(function(partner){
+		return partner.partner+" \t-\t "+partner.office+"\n";
+	})
+	.join("");
 
 console.log("Partner Offices within 100km to Invite For A Meal");
 console.log("=================================================");
 console.log("Partner \t-\t Address");
 console.log("------- \t-\t -------");
-console.log(_mailing_list);
+console.log(_mailing_list_presented);
